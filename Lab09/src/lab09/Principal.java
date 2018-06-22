@@ -62,12 +62,20 @@ public class Principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        tf_nombreEmpleado = new javax.swing.JTextField();
+        tf_passwordEmpleado = new javax.swing.JTextField();
+        tf_idEmpresaEmpleado = new javax.swing.JTextField();
+        tf_salarioEmpleado = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jcb_jefe = new javax.swing.JComboBox<>();
+        cb_manager = new javax.swing.JComboBox<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jl_empleados = new javax.swing.JList<>();
+        jLabel17 = new javax.swing.JLabel();
+        bt_delEmpleado = new javax.swing.JButton();
+        bt_addEmpleado = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        tf_puestoEmpleado = new javax.swing.JTextField();
+        bt_editEmpleado = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtree_empresa = new javax.swing.JTree();
@@ -177,7 +185,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(bt_addCEO)
                     .addComponent(bt_delCEO)
                     .addComponent(bt_editCEO))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gerente General", jp_ceo);
@@ -191,8 +199,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel13.setText("Nombre:");
 
         jLabel14.setText("Jefe:");
-
-        cb_jefeGerente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un Gerente General" }));
 
         bt_addManager.setText("Agregar");
         bt_addManager.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -233,8 +239,8 @@ public class Principal extends javax.swing.JFrame {
                             .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(tf_passwordManager)
                                 .addComponent(tf_salarioManager)
-                                .addComponent(tf_idEmpresaManager, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cb_jefeGerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(tf_idEmpresaManager, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                .addComponent(cb_jefeGerente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jp_gerenteLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jLabel13)
@@ -242,17 +248,17 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(tf_nombreManager, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_gerenteLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(43, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_gerenteLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bt_delManager)
-                        .addGap(78, 78, 78))
-                    .addGroup(jp_gerenteLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(49, Short.MAX_VALUE))))
+                        .addGap(95, 95, 95))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_gerenteLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel16)
-                .addGap(61, 61, 61))
+                .addGap(83, 83, 83))
         );
         jp_gerenteLayout.setVerticalGroup(
             jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,11 +289,12 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(cb_jefeGerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt_addManager)
-                    .addComponent(bt_editManager)
+                .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(bt_addManager)
+                        .addComponent(bt_editManager))
                     .addComponent(bt_delManager))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gerente", jp_gerente);
@@ -300,57 +307,110 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel5.setText("Salario:");
 
-        jLabel6.setText("Jefe:");
+        jLabel6.setText("Puesto:");
 
-        jcb_jefe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un Gerente..." }));
+        cb_manager.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un Gerente..." }));
+
+        jl_empleados.setModel(new DefaultListModel());
+        jScrollPane4.setViewportView(jl_empleados);
+
+        jLabel17.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
+        jLabel17.setText("Lista Empleados");
+
+        bt_delEmpleado.setText("Eliminar");
+
+        bt_addEmpleado.setText("Agregar");
+        bt_addEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_addEmpleadoMouseClicked(evt);
+            }
+        });
+
+        jLabel18.setText("Jefe:");
+
+        bt_editEmpleado.setText("Modificar");
 
         javax.swing.GroupLayout jp_empleadoLayout = new javax.swing.GroupLayout(jp_empleado);
         jp_empleado.setLayout(jp_empleadoLayout);
         jp_empleadoLayout.setHorizontalGroup(
             jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_empleadoLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(22, 22, 22)
                 .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField3)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                        .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addComponent(jcb_jefe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(180, Short.MAX_VALUE))
+                    .addGroup(jp_empleadoLayout.createSequentialGroup()
+                        .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_passwordEmpleado)
+                            .addComponent(tf_nombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_manager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(tf_puestoEmpleado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                .addComponent(tf_salarioEmpleado, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tf_idEmpresaEmpleado, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_empleadoLayout.createSequentialGroup()
+                        .addComponent(bt_editEmpleado)
+                        .addGap(30, 30, 30)
+                        .addComponent(bt_addEmpleado)
+                        .addGap(15, 15, 15)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_empleadoLayout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(42, 42, 42))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_empleadoLayout.createSequentialGroup()
+                        .addComponent(bt_delEmpleado)
+                        .addGap(63, 63, 63))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_empleadoLayout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))))
         );
         jp_empleadoLayout.setVerticalGroup(
             jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_empleadoLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jcb_jefe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jp_empleadoLayout.createSequentialGroup()
+                        .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(tf_nombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(tf_passwordEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(tf_idEmpresaEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(tf_salarioEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(tf_puestoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addComponent(cb_manager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jp_empleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bt_addEmpleado)
+                            .addComponent(bt_editEmpleado)))
+                    .addGroup(jp_empleadoLayout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bt_delEmpleado)))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Empleado", jp_empleado);
@@ -379,7 +439,7 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Administración", jPanel4);
@@ -454,10 +514,9 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmi_empleadosActionPerformed
 
     private void bt_addCEOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addCEOMouseClicked
+        //Agregar el CEO de la compañia
         String nombre, password;
         int id, salario;
-        
-        
         
         if(cCEO==0){
             
@@ -467,7 +526,8 @@ public class Principal extends javax.swing.JFrame {
                 id = Integer.parseInt(tf_ID_Empresa.getText());
                 salario = Integer.parseInt(tf_salarioCEO.getText());
                 ceo = new GerenteGeneral(nombre, password, salario, id);
-                ceo.setListaGerentes(listaGerentes);
+                ceo.setManager(new Gerente());
+                
                 DefaultListModel modeloLista = (DefaultListModel)jl_CEO.getModel();
                 DefaultComboBoxModel modeloCB = (DefaultComboBoxModel)cb_jefeGerente.getModel();
                 JOptionPane.showMessageDialog(jd_empleados, "Gerente General Agregado Correctamente");
@@ -502,7 +562,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_addCEOMouseClicked
 
     private void jl_CEOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_CEOMouseClicked
-        
+        //Seleccionar CEO de la lista para modificarlo.
         if(jl_CEO.getSelectedIndex()>=0){
             tf_nombreCEO.setText(ceo.getNombre());
             tf_pwCEO.setText(ceo.getContrasena());
@@ -513,6 +573,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jl_CEOMouseClicked
 
     private void bt_addManagerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addManagerMouseClicked
+        //Agregar un gerente
         String nombre, password;
         int id, salario;
         
@@ -521,15 +582,57 @@ public class Principal extends javax.swing.JFrame {
             password = tf_passwordManager.getText();
             id = Integer.parseInt(tf_idEmpresaManager.getText());
             salario = Integer.parseInt(tf_salarioManager.getText());
+            Gerente x = new Gerente(nombre, password, id, salario, ceo);
+            listaGerentes.add(x);
+            x.setEmpleados(new Empleado());
             
-            DefaultListModel modeloLista = (DefaultListModel)jl
+            DefaultListModel modeloLista = (DefaultListModel)jl_managers.getModel();
+            DefaultComboBoxModel modeloCBM = (DefaultComboBoxModel)cb_manager.getModel();
             
+            JOptionPane.showMessageDialog(jd_empleados, "Manager Agregado Correctamente");
+                
+            modeloLista.addElement(x);
+            modeloCBM.addElement(x);
+            jl_managers.setModel(modeloLista);
+            cb_manager.setModel(modeloCBM);
             
         }catch(Exception e){
             e.printStackTrace();
         }
         
     }//GEN-LAST:event_bt_addManagerMouseClicked
+
+    private void bt_addEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addEmpleadoMouseClicked
+        String nombre, password,puesto;
+        int id, salario;
+        String jefe;
+        
+        try{
+            nombre = tf_nombreEmpleado.getText();
+            password= tf_passwordEmpleado.getText();
+            puesto= tf_puestoEmpleado.getText();
+            id = Integer.parseInt(tf_idEmpresaEmpleado.getText());
+            salario = Integer.parseInt(tf_salarioEmpleado.getText());
+            jefe = listaGerentes.get(cb_manager.getSelectedIndex()).getNombre();
+            Empleado e = new Empleado(nombre, nombre, puesto, id, salario, jefe);
+            listaEmpleados.add(e);
+            
+            JOptionPane.showMessageDialog(jd_empleados, "Empleado agregado exitosamente");
+            DefaultListModel modeloLista = (DefaultListModel)jl_empleados.getModel();
+            modeloLista.addElement(e);
+            jl_empleados.setModel(modeloLista);
+            
+            tf_nombreEmpleado.setText("");
+            tf_passwordEmpleado.setText("");
+            tf_puestoEmpleado.setText("");
+            tf_idEmpresaEmpleado.setText("");
+            tf_salarioEmpleado.setText("");
+            cb_manager.setSelectedIndex(0);
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_bt_addEmpleadoMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -565,12 +668,16 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_addCEO;
+    private javax.swing.JButton bt_addEmpleado;
     private javax.swing.JButton bt_addManager;
     private javax.swing.JButton bt_delCEO;
+    private javax.swing.JButton bt_delEmpleado;
     private javax.swing.JButton bt_delManager;
     private javax.swing.JButton bt_editCEO;
+    private javax.swing.JButton bt_editEmpleado;
     private javax.swing.JButton bt_editManager;
     private javax.swing.JComboBox<String> cb_jefeGerente;
+    private javax.swing.JComboBox<String> cb_manager;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -579,6 +686,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -593,15 +702,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JComboBox<String> jcb_jefe;
     private javax.swing.JDialog jd_empleados;
     private javax.swing.JList<String> jl_CEO;
+    private javax.swing.JList<String> jl_empleados;
     private javax.swing.JList<String> jl_managers;
     private javax.swing.JMenuItem jmi_empleados;
     private javax.swing.JMenuItem jmi_salir;
@@ -610,12 +716,17 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jp_gerente;
     private javax.swing.JTree jtree_empresa;
     private javax.swing.JTextField tf_ID_Empresa;
+    private javax.swing.JTextField tf_idEmpresaEmpleado;
     private javax.swing.JTextField tf_idEmpresaManager;
     private javax.swing.JTextField tf_nombreCEO;
+    private javax.swing.JTextField tf_nombreEmpleado;
     private javax.swing.JTextField tf_nombreManager;
+    private javax.swing.JTextField tf_passwordEmpleado;
     private javax.swing.JTextField tf_passwordManager;
+    private javax.swing.JTextField tf_puestoEmpleado;
     private javax.swing.JPasswordField tf_pwCEO;
     private javax.swing.JTextField tf_salarioCEO;
+    private javax.swing.JTextField tf_salarioEmpleado;
     private javax.swing.JTextField tf_salarioManager;
     // End of variables declaration//GEN-END:variables
 
