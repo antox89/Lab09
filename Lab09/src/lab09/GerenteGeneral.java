@@ -7,14 +7,14 @@ import java.util.ArrayList;
 
 public class GerenteGeneral {
     
-    public String nombre, contrasena, salario;
-    public int idEmpresa;
+    public String nombre, contrasena ;
+    public int idEmpresa,salario;
     public ArrayList<Gerente> listaGerentes = new ArrayList();
 
     public GerenteGeneral() {
     }
 
-    public GerenteGeneral(String nombre, String contrasena, String salario, int idEmpresa) {
+    public GerenteGeneral(String nombre, String contrasena, int salario, int idEmpresa) {
         this.nombre = nombre;
         this.contrasena = contrasena;
         this.salario = salario;
@@ -41,11 +41,11 @@ public class GerenteGeneral {
         this.contrasena = contrasena;
     }
 
-    public String getSalario() {
+    public int getSalario() {
         return salario;
     }
 
-    public void setSalario(String salario) {
+    public void setSalario(int salario) {
         this.salario = salario;
     }
 
