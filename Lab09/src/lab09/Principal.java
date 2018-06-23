@@ -83,9 +83,22 @@ public class Principal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtree_empresa = new javax.swing.JTree();
+        jd_mensajes = new javax.swing.JDialog();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        bt_enviar = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        rb_si = new javax.swing.JRadioButton();
+        rb_no = new javax.swing.JRadioButton();
+        btg_cifrar = new javax.swing.ButtonGroup();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_empleados = new javax.swing.JMenuItem();
+        jmi_mesajes = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jmi_salir = new javax.swing.JMenuItem();
 
@@ -474,6 +487,77 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(jTabbedPane1)
         );
 
+        jd_mensajes.setTitle("Mensajes de Texto");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane5.setViewportView(jTextArea1);
+
+        bt_enviar.setText("Enviar");
+
+        jLabel20.setText("Para:");
+
+        jLabel21.setText("De:");
+
+        jLabel22.setText("Cifrar:");
+
+        btg_cifrar.add(rb_si);
+        rb_si.setText("Si");
+
+        btg_cifrar.add(rb_no);
+        rb_no.setText("No");
+
+        javax.swing.GroupLayout jd_mensajesLayout = new javax.swing.GroupLayout(jd_mensajes.getContentPane());
+        jd_mensajes.getContentPane().setLayout(jd_mensajesLayout);
+        jd_mensajesLayout.setHorizontalGroup(
+            jd_mensajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_mensajesLayout.createSequentialGroup()
+                .addGroup(jd_mensajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_mensajesLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addGroup(jd_mensajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel20))
+                        .addGap(18, 18, 18)
+                        .addGroup(jd_mensajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                            .addComponent(jTextField2)))
+                    .addGroup(jd_mensajesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jd_mensajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jd_mensajesLayout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rb_si)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rb_no)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bt_enviar))
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+        jd_mensajesLayout.setVerticalGroup(
+            jd_mensajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_mensajesLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jd_mensajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel20)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_mensajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jd_mensajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_enviar)
+                    .addComponent(jLabel22)
+                    .addComponent(rb_si)
+                    .addComponent(rb_no))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Administrar");
@@ -485,6 +569,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jmi_empleados);
+
+        jmi_mesajes.setText("Mensajes");
+        jmi_mesajes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_mesajesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmi_mesajes);
         jMenu1.add(jSeparator1);
 
         jmi_salir.setText("Salir");
@@ -653,8 +745,6 @@ public class Principal extends javax.swing.JFrame {
             //listarG(x,raiz);
             modeloArbol.reload();
             
-            
-            
             JOptionPane.showMessageDialog(jd_empleados, "Manager Agregado Correctamente");
                 
             modeloLista.addElement(x);
@@ -700,6 +790,13 @@ public class Principal extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_bt_addEmpleadoMouseClicked
+
+    private void jmi_mesajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_mesajesActionPerformed
+        jd_mensajes.pack();
+        jd_mensajes.setModal(true);
+        jd_mensajes.setLocationRelativeTo(this);
+        jd_mensajes.setVisible(true);
+    }//GEN-LAST:event_jmi_mesajesActionPerformed
 
     public void listarG(Gerente gerente, DefaultMutableTreeNode nodo){
         
@@ -761,6 +858,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton bt_editCEO;
     private javax.swing.JButton bt_editEmpleado;
     private javax.swing.JButton bt_editManager;
+    private javax.swing.JButton bt_enviar;
+    private javax.swing.ButtonGroup btg_cifrar;
     private javax.swing.JComboBox<String> cb_areaGerente;
     private javax.swing.JComboBox<String> cb_jefeGerente;
     private javax.swing.JComboBox<String> cb_manager;
@@ -776,6 +875,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -790,18 +892,26 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JDialog jd_empleados;
+    private javax.swing.JDialog jd_mensajes;
     private javax.swing.JList<String> jl_CEO;
     private javax.swing.JList<String> jl_empleados;
     private javax.swing.JList<String> jl_managers;
     private javax.swing.JMenuItem jmi_empleados;
+    private javax.swing.JMenuItem jmi_mesajes;
     private javax.swing.JMenuItem jmi_salir;
     private javax.swing.JPanel jp_ceo;
     private javax.swing.JPanel jp_empleado;
     private javax.swing.JPanel jp_gerente;
     private javax.swing.JTree jtree_empresa;
+    private javax.swing.JRadioButton rb_no;
+    private javax.swing.JRadioButton rb_si;
     private javax.swing.JTextField tf_ID_Empresa;
     private javax.swing.JTextField tf_idEmpresaEmpleado;
     private javax.swing.JTextField tf_idEmpresaManager;
