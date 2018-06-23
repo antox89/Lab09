@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Gerente {
     
-    private String nombre, contrasena;
+    private String nombre, contrasena, area;
     private int id,salario;
     private GerenteGeneral ceo;
     ArrayList<Empleado> listaEmpleados = new ArrayList();
@@ -15,18 +15,27 @@ public class Gerente {
     public Gerente() {
     }
 
-    public Gerente(String nombre, String contrasena, int id, int salario, GerenteGeneral ceo) {
+    public Gerente(String nombre, String contrasena, int id, int salario, GerenteGeneral ceo,String area) {
         this.nombre = nombre;
         this.contrasena = contrasena;
         this.id = id;
         this.salario = salario;
         this.ceo = new GerenteGeneral();
+        this.area=area;
     }
     
     public void setEmpleados(Empleado empleado){
         this.listaEmpleados.add(empleado);
     }
 
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+    
     public String getNombre() {
         return nombre;
     }

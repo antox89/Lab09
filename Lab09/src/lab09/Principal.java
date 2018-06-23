@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -57,6 +59,8 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jl_managers = new javax.swing.JList<>();
         jLabel16 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        cb_areaGerente = new javax.swing.JComboBox<>();
         jp_empleado = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -185,7 +189,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(bt_addCEO)
                     .addComponent(bt_delCEO)
                     .addComponent(bt_editCEO))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gerente General", jp_ceo);
@@ -217,35 +221,51 @@ public class Principal extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
         jLabel16.setText("Lista Gerentes");
 
+        jLabel19.setText("Area:");
+
+        cb_areaGerente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Finanzas", "Ventas", "IT", "Administración", "Producción", "Marketing" }));
+
         javax.swing.GroupLayout jp_gerenteLayout = new javax.swing.GroupLayout(jp_gerente);
         jp_gerente.setLayout(jp_gerenteLayout);
         jp_gerenteLayout.setHorizontalGroup(
             jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_gerenteLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jp_gerenteLayout.createSequentialGroup()
-                            .addComponent(bt_editManager)
-                            .addGap(30, 30, 30)
-                            .addComponent(bt_addManager))
-                        .addGroup(jp_gerenteLayout.createSequentialGroup()
-                            .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel12)
-                                .addComponent(jLabel11)
-                                .addComponent(jLabel10)
-                                .addComponent(jLabel14))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(tf_passwordManager)
-                                .addComponent(tf_salarioManager)
-                                .addComponent(tf_idEmpresaManager, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                                .addComponent(cb_jefeGerente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jp_gerenteLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addGap(46, 46, 46)
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_nombreManager, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tf_nombreManager, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_gerenteLayout.createSequentialGroup()
+                        .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_gerenteLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bt_addManager))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_gerenteLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cb_jefeGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(21, 21, 21))
+                    .addGroup(jp_gerenteLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_gerenteLayout.createSequentialGroup()
+                                .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel19))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tf_passwordManager)
+                                        .addComponent(tf_salarioManager)
+                                        .addComponent(tf_idEmpresaManager, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
+                                    .addComponent(cb_areaGerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jp_gerenteLayout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(bt_editManager)))))
                 .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_gerenteLayout.createSequentialGroup()
                         .addGap(61, 61, 61)
@@ -284,17 +304,20 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addComponent(tf_salarioManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
+                        .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addComponent(cb_areaGerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(cb_jefeGerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(bt_addManager)
-                        .addComponent(bt_editManager))
+                            .addComponent(cb_jefeGerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jp_gerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_addManager)
+                    .addComponent(bt_editManager)
                     .addComponent(bt_delManager))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gerente", jp_gerente);
@@ -410,18 +433,12 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(bt_delEmpleado)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Empleado", jp_empleado);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Empresa");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gerente General");
-        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Gerentes");
-        javax.swing.tree.DefaultMutableTreeNode treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Empleados");
-        treeNode3.add(treeNode4);
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
         jtree_empresa.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane1.setViewportView(jtree_empresa);
 
@@ -430,16 +447,16 @@ public class Principal extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(307, Short.MAX_VALUE)
+                .addContainerGap(279, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addGap(64, 64, 64))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Administración", jPanel4);
@@ -530,6 +547,22 @@ public class Principal extends javax.swing.JFrame {
                 
                 DefaultListModel modeloLista = (DefaultListModel)jl_CEO.getModel();
                 DefaultComboBoxModel modeloCB = (DefaultComboBoxModel)cb_jefeGerente.getModel();
+                
+                DefaultTreeModel modeloArbol = (DefaultTreeModel)jtree_empresa.getModel();
+                DefaultMutableTreeNode raiz = (DefaultMutableTreeNode)modeloArbol.getRoot();
+                DefaultMutableTreeNode nodo_gerente;
+                DefaultMutableTreeNode managers;
+                DefaultMutableTreeNode area;
+                nodo_gerente = new DefaultMutableTreeNode(ceo);
+                managers = new DefaultMutableTreeNode("Managers");
+                area = new DefaultMutableTreeNode("Area");
+                
+                managers.add(area);
+                nodo_gerente.add(managers);
+                raiz.add(nodo_gerente);
+                modeloArbol.reload();
+                
+                
                 JOptionPane.showMessageDialog(jd_empleados, "Gerente General Agregado Correctamente");
                 
                 modeloCB.addElement(ceo);
@@ -574,7 +607,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void bt_addManagerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addManagerMouseClicked
         //Agregar un gerente
-        String nombre, password;
+        String nombre, password,area;
         int id, salario;
         
         try{
@@ -582,12 +615,45 @@ public class Principal extends javax.swing.JFrame {
             password = tf_passwordManager.getText();
             id = Integer.parseInt(tf_idEmpresaManager.getText());
             salario = Integer.parseInt(tf_salarioManager.getText());
-            Gerente x = new Gerente(nombre, password, id, salario, ceo);
+            area = Integer.toString(cb_areaGerente.getSelectedIndex());
+            
+            Gerente x = new Gerente(nombre, password, id, salario, ceo,area);
             listaGerentes.add(x);
             x.setEmpleados(new Empleado());
             
             DefaultListModel modeloLista = (DefaultListModel)jl_managers.getModel();
             DefaultComboBoxModel modeloCBM = (DefaultComboBoxModel)cb_manager.getModel();
+            
+            DefaultTreeModel modeloArbol = (DefaultTreeModel)jtree_empresa.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode)modeloArbol.getRoot();
+            /*  
+            int centinela =-1;
+            
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+                
+                if(raiz.getChildAt(i).toString().equals(area)){
+                    
+                    DefaultMutableTreeNode p
+                            = new DefaultMutableTreeNode(x);
+                    
+                    ((DefaultMutableTreeNode)raiz.getChildAt(i)).add(p);
+                    centinela = 1;
+                }
+            }
+            
+            if(centinela==-1){
+                DefaultMutableTreeNode n =
+                        new DefaultMutableTreeNode(area);
+                DefaultMutableTreeNode p
+                        = new DefaultMutableTreeNode(x);
+                n.add(p);
+                raiz.add(n);
+            }*/
+            
+            //listarG(x,raiz);
+            modeloArbol.reload();
+            
+            
             
             JOptionPane.showMessageDialog(jd_empleados, "Manager Agregado Correctamente");
                 
@@ -603,6 +669,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_addManagerMouseClicked
 
     private void bt_addEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addEmpleadoMouseClicked
+        //Agregar empleados
         String nombre, password,puesto;
         int id, salario;
         String jefe;
@@ -614,7 +681,7 @@ public class Principal extends javax.swing.JFrame {
             id = Integer.parseInt(tf_idEmpresaEmpleado.getText());
             salario = Integer.parseInt(tf_salarioEmpleado.getText());
             jefe = listaGerentes.get(cb_manager.getSelectedIndex()).getNombre();
-            Empleado e = new Empleado(nombre, nombre, puesto, id, salario, jefe);
+            Empleado e = new Empleado(nombre, password, puesto, id, salario, jefe);
             listaEmpleados.add(e);
             
             JOptionPane.showMessageDialog(jd_empleados, "Empleado agregado exitosamente");
@@ -634,6 +701,24 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bt_addEmpleadoMouseClicked
 
+    public void listarG(Gerente gerente, DefaultMutableTreeNode nodo){
+        
+        ArrayList<Gerente> listG = new ArrayList();
+        
+        for (Gerente temp :listG){
+            if(listG.isEmpty()){
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode(temp);
+                nodo.add(n);
+            }else{
+               DefaultMutableTreeNode n = new DefaultMutableTreeNode(temp);
+                nodo.add(n);
+                listarG(temp,n);
+            }
+        }
+        
+        
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -676,6 +761,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton bt_editCEO;
     private javax.swing.JButton bt_editEmpleado;
     private javax.swing.JButton bt_editManager;
+    private javax.swing.JComboBox<String> cb_areaGerente;
     private javax.swing.JComboBox<String> cb_jefeGerente;
     private javax.swing.JComboBox<String> cb_manager;
     private javax.swing.JLabel jLabel1;
@@ -688,6 +774,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
